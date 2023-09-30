@@ -12,6 +12,9 @@ struct MacroApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, CoreDataManager.shared.viewContext)
+                .environmentObject(MeetingModel(timer: TimerManager()))
+                
         }
     }
 }
